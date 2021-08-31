@@ -10,6 +10,11 @@ class TasksController < ApplicationController
   def show
   end
 
+  def show_mine
+    @user = User.find(current_user.id);
+    @tasks = @user.tasks
+  end
+
   # GET /tasks/new
   def new
     @task = Task.new
