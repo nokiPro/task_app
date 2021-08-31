@@ -37,7 +37,12 @@
         <%= form.radio_button :status, 4 %>
         <%= form.label "#" %>
   </div>
-  <div class="actions float-right" style="display: inline-block;">
-    <%= form.submit "更新する", class: 'btn btn-success text-white' %>
-  </div>
+
+    <div class="actions float-right" style="display: inline-block;">
+      <% if params[:action] == "new" %>
+        <%= form.submit "登録する", class: 'btn btn-success text-white' %>
+      <% else %>
+        <%= form.submit "更新する", class: 'btn btn-success text-white' %>
+      <% end %>
+    </div>
 <% end %>
