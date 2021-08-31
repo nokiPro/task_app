@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'blogs#index'
-  resources :blogs
+  root to: 'tasks#index'
+  resources :tasks
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users
 
