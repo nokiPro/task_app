@@ -13,25 +13,36 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control"  %>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control"  %>
   </div>
 
   <div class="field">
     <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
+    <%= form.datetime_select :deadline, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+        <%= form.radio_button :status, 1 %>
+        <%= form.label "#" %>
+        <%= form.radio_button :status, 2 %>
+        <%= form.label "#" %>
+        <%= form.radio_button :status, 3 %>
+        <%= form.label "#" %>
+        <%= form.radio_button :status, 4 %>
+        <%= form.label "#" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions float-right" style="display: inline-block;">
+      <% if params[:action] == "new" %>
+        <%= form.submit "登録する", class: 'btn btn-success text-white' %>
+      <% else %>
+        <%= form.submit "更新する", class: 'btn btn-success text-white' %>
+      <% end %>
+    </div>
 <% end %>
