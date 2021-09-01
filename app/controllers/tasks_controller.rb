@@ -3,8 +3,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
     @status = ["未対応","対応中","完了"]
+    @tasks = Task.all
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -28,6 +28,7 @@ class TasksController < ApplicationController
   end
 
   def asign
+    @status = ["未対応","対応中","完了"]
     @users = User.all
   end
 

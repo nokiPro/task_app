@@ -1,22 +1,26 @@
 <h1>マイタスク</h1>
 <div class="row justify-content-evenly">
   <% @tasks.each do |task| %>
-    <div class="card border-success mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0" >
-      <div class="row g-0">
-        <div class="col-md-8">
-          <div class="card-body">
-            <p><%= task.title %><p>
-            <p>担当者：<p>
-            <p>期限：<%= task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
-            <p>ステータス：<%= @status[task.status]%></p>
-            <div>
-              <%= link_to '詳細', task_path(task), class: 'btn btn-secondary text-white' %>
-              <%= link_to '編集', edit_task_path(task), class: 'btn btn-primary text-white' %>
-              <%= button_to '削除', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
+    <% if task.user_id == current_user.id %>
+      <div class="card border-danger mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0" >
+    <% else %>
+      <div class="card border-success mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0" >
+    <% end %>
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <p><%= task.title %><p>
+              <p>担当者：<p>
+              <p>期限：<%= task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
+              <p>ステータス：<%= @status[task.status]%></p>
+              <div>
+                <%= link_to '詳細', task_path(task), class: 'btn btn-secondary text-white' %>
+                <%= link_to '編集', edit_task_path(task), class: 'btn btn-primary text-white' %>
+                <%= button_to '削除', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   <% end %>
 </div>
