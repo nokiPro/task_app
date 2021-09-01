@@ -6,14 +6,14 @@
         <div class="col-md-8">
           <div class="card-body">
             <p><%= task.title %><p>
-            <p>担当者：<p>
+            <p>担当者：<%= task.user.name %><p>
             <p>期限：<%= task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
             <p>ステータス：</p>
             <div>
               <%= link_to '詳細', task_path(task), class: 'btn btn-secondary text-white' %>
               <%# <% if recruit.owner_id == current_user.id %>
                 <%= link_to '編集', edit_task_path(task), class: 'btn btn-primary text-white' %>
-                <%= link_to '削除', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
+                <%= button_to '削除', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white' %>
               <%# <% end %>
             </div>
           </div>
@@ -21,8 +21,4 @@
       </div>
     </div>
   <% end %>
-</div>
-
-<div id="new-blog-link" class="button">
-  <%= link_to '新規作成', new_task_path, class: 'btn btn-primary text-white' %>
 </div>

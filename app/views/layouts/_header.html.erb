@@ -17,6 +17,8 @@
         </li>
       </ul>
     </div>
-    <p class="text-secondary">ようこそ<%= current_user.name%>さん</p>
+    <% if current_user %>
+      <p class="text-secondary">ようこそ<%= current_user.name%>さん</p>
+    <% end %>
   </div>
 </nav>
