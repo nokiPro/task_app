@@ -50,7 +50,8 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
-    @task.user_id = params[:task][:user_id]
+    @task.user_id = params[:user_id]
+    #binding.pry
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }
