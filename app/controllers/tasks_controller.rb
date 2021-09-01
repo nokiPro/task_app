@@ -1,21 +1,19 @@
 class TasksController < ApplicationController
-  mikakuninn = {name: "未対応", status: 1},
-    {name: "未対応",
-    status: 1},
-    {name: "未対応",
-    status: 1}
   before_action :set_task, only: %i[ show edit asign update destroy ]
 
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    @status = ["未対応","対応中","完了"]
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @status = ["未対応","対応中","完了"]
   end
 
   def show_mine
+    @status = ["未対応","対応中","完了"]
     @user = User.find(current_user.id);
     @tasks = @user.tasks
   end

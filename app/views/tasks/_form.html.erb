@@ -28,14 +28,14 @@
 
   <div class="field">
     <%= form.label :status %>
+    <%= form.radio_button :status, 0 %>
+    <%= form.label "未対応" %>
     <%= form.radio_button :status, 1 %>
-    <%= form.label "#" %>
-    <%= form.radio_button :status, 2 %>
-    <%= form.label "#" %>
-    <%= form.radio_button :status, 3 %>
-    <%= form.label "#" %>
-    <%= form.radio_button :status, 4 %>
-    <%= form.label "#" %>
+    <%= form.label "対応中" %>
+    <% if params[:action] == "edit" %>
+      <%= form.radio_button :status, 2 %>
+      <%= form.label "完了" %>
+    <% end %>
   </div>
 
     <div class="actions float-right" style="display: inline-block;">
