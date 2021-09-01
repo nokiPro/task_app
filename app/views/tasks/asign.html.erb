@@ -1,0 +1,26 @@
+<h1>アサイン</h1>
+<p>現在アサインされているユーザー</p>
+<p><%= @task.user.name %></p>
+<div class="mb-3">
+  <%= form_with(model: @task, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :user_id %>
+      <%= f.select :user_id, User.all.map{|u| [u.name, u.id]}, {}, {class: 'form-select form-select-lg mb-3'} %>
+    </div>
+    <%= hidden_field_tag :id, @task.id %>
+    <div class="form-group">
+    <%= f.submit 'アサインする', class: 'btn btn-success btn-block' %>
+    </div>
+  <% end %>
+</div>
+<div class="row g-0">
+  <div class="col-md-12 bg-light">
+    <div class="card-body">
+      <h2 class="card-name"><%= @task.title %></h2>
+      <p class="card-text">担当者：</p>
+      <p class="card-text">内容：<%= @task.content %></p>
+      <p class="card-text">期日：<%= @task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
+      <p class="card-text">ステータス：<%= @task.status %></p>
+    </div>
+  </div>
+</div>

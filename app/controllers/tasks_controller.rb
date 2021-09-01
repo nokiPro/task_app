@@ -1,13 +1,21 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit asign update destroy ]
 
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    @status = ["未対応","対応中","完了"]
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @status = ["未対応","対応中","完了"]
+  end
+
+  def show_mine
+    @status = ["未対応","対応中","完了"]
+    @user = User.find(current_user.id);
+    @tasks = @user.tasks
   end
 
   # GET /tasks/new
@@ -19,9 +27,14 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def asign
+    @users = User.all
+  end
+
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
 
     respond_to do |format|
       if @task.save
@@ -36,6 +49,7 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
+    @task.user_id = params[:task][:user_id]
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }
@@ -59,11 +73,12 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
+      #binding.pry
       @task = Task.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :content, :deadline, :status)
+      params.require(:task).permit(:title, :content, :deadline, :status, :user_id)
     end
 end
