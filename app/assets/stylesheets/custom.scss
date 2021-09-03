@@ -58,6 +58,11 @@
     background-color: rgb(230, 230, 230)!important;
   }
 
+  div.field_with_errors {
+    background-color: #fcc;
+    padding: 2px;
+  }
+
   /**********************************　
   以下、ハンバーガーメニューの設定　
   ************************************/
