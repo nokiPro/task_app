@@ -1,29 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex align-items-center">
-  <div class="container-fluid">
-    <%= link_to 'タスク管理アプリ', root_path, class: "navbar-brand" %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to 'マイタスク', tasks_show_mine_path, class: "nav-link hv-trans" %>
+<%# https://hakenblog.com/hamburger-menu/ %>
+
+<header>
+  <div class="logo">
+      <%= link_to 'タスク管理アプリ', root_path, class: "link_to" %>
+  </div>
+
+  <div id="hamburger">
+      <div class="icon">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </div>
+
+  <nav class="sm">
+    <ul>
+      <li>
+        <%= link_to 'マイタスク', tasks_show_mine_path ,class: "link_to hover" %>
+      </li>
+      <li>
+        <%= link_to 'タスク一覧', root_path ,class: "link_to" %>
+      </li>
+      <li>
+        <%= link_to 'ユーザ設定', edit_user_registration_path ,class: "link_to" %>
+      </li>
+      <li>
+      <% if current_user %>
+        <%= button_to 'サインアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= button_to 'サインイン', new_user_session_path%>
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="pc">
+    <ul>
+        <li>
+          <%= link_to 'マイタスク', tasks_show_mine_path ,class: "link_to" %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'タスク一覧', root_path, class: "nav-link hv-trans" %>
+        <li>
+          <%= link_to 'タスク一覧', root_path ,class: "link_to" %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'ユーザ設定', edit_user_registration_path, class: "nav-link hv-trans" %>
+        <li>
+          <%= link_to 'ユーザ設定', edit_user_registration_path ,class: "link_to" %>
         </li>
         <% if current_user %>
-          <li class="nav-item" style="margin-left: 20px;">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link hv-trans" %>
+          <li style="justify-content: center; display: flex; align-items: center;">
+          <%= button_to 'サインアウト', destroy_user_session_path, method: :delete ,class: "button_to" %>
         <% else %>
-          <li class="nav-item" style="margin-left: 20px;">
-          <%= link_to 'サインイン', new_user_session_path, class: "nav-link hv-trans" %>
+          <li style="justify-content: center; display: flex; align-items: center;">
+          <%= button_to 'サインイン', new_user_session_path ,class: "button_to" %>
         <% end %>
         </li>
       </ul>
-    </div>
-    <% if current_user %>
-      <p class="text-secondary">ようこそ<%= current_user.name%>さん</p>
-    <% end %>
-  </div>
-</nav>
+  </nav>
+
+  <% if current_user %>
+    <p class="header-message">ようこそ<%= current_user.name%>さん</p>
+  <% end %>
+</header>
+
+<script>
+  $('#hamburger').on('click', function(){
+  $('.icon').toggleClass('close');
+  $('.sm').slideToggle();
+  });
+</script>

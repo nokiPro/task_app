@@ -1,12 +1,16 @@
 <h1>タスク一覧</h1>
-<div class="row justify-content-evenly">
+<div class="row">
   <% @tasks.each do |task| %>
     <% if task.user_id == current_user.id %>
       <div class="card border-danger mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0" >
     <% else %>
       <div class="card border-success mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0" >
     <% end %>
-        <div class="card-header">
+      <% if task.user_id == current_user.id %>
+        <div class="card-header" style="background-color: rgb(247, 185, 183);">
+      <% else %>
+        <div class="card-header" style="background-color: rgb(169, 224, 169);">
+      <% end %>
           <p><%= task.title %><p>
         </div>
         <div class="card-body">
