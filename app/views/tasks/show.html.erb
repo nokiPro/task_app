@@ -3,9 +3,9 @@
   <div class="col-md-12 bg-light">
     <div class="card-body">
       <h2 class="card-name"><%= @task.title %></h2>
+      <p class="card-text"><%= @task.content %></p>
+      <p class="card-text">期限：<%= @task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
       <p class="card-text">担当者：<%= @task.user.name %></p>
-      <p class="card-text">内容：<%= @task.content %></p>
-      <p class="card-text">期日：<%= @task.deadline.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
       <p class="card-text">ステータス：<%= @status[@task.status]%></p>
       <div>
         <% if @task.user_id == current_user.id %>
