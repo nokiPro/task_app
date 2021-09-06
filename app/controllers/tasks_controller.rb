@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit asign update destroy ]
+  before_action :set_task, only: [:show, :edit, :asign, :update, :destroy]
 
   # GET /tasks or /tasks.json
   def index
     @status = ["未対応","対応中","完了"]
-    @tasks = Task.all
+    @tasks = Task.where.not(status: 2).order(deadline: "DESC")
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -14,8 +14,8 @@ class TasksController < ApplicationController
 
   def show_mine
     @status = ["未対応","対応中","完了"]
-    @user = User.find(current_user.id);
-    @tasks = @user.tasks
+    @user = User.find(current_user.id)
+    @tasks = @user.tasks.where.not(status: 2).order(deadline: "ASC")
   end
 
   # GET /tasks/new
@@ -51,7 +51,6 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
     @task.user_id = params[:user_id]
-    #binding.pry
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }
@@ -75,7 +74,6 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      #binding.pry
       @task = Task.find(params[:id])
     end
 
