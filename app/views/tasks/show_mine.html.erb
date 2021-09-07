@@ -17,7 +17,11 @@
           <% else %>
             <div class="card-header" style="background-color: rgb(169, 224, 169);">
           <% end %>
-              <p><%= task.title %><p>
+            <% if DateTime.current > task[:deadline] %>
+              <h2><span class="spinner-grow text-danger"></span><%= task.title %><h2>
+            <% else %>
+              <h2><%= task.title %><h2>
+            <% end %>
             </div>
             <div class="card-body">
               <p><%= task.content%><p>

@@ -1,36 +1,34 @@
 <%= form_with(model: task) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <% if @task.errors.any? %>
+    <div>
+      <ul style="color: red">
+        <% @task.errors.full_messages.each do |message| %>
+          <li>・<%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="field mb-3">
+    <%= form.label :title, "タイトル" %>
     <%= form.text_field :title, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
+  <div class="field mb-3">
+    <%= form.label :content, "内容" %>
     <%= form.text_area :content, class: "form-control"  %>
   </div>
 
   <%= hidden_field_tag :user_id, current_user.id %>
 
-  <div class="field">
-    <%= form.label :deadline %>
+  <div class="field mb-3">
+    <%= form.label :deadline, "期限" %>
     <br>
     <%= form.datetime_select :deadline, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
+  <div class="field mb-3">
+    <%= form.label :status, "ステータス" %>
     <%= form.radio_button :status, 0 %>
     <%= form.label "未対応" %>
     <%= form.radio_button :status, 1 %>
