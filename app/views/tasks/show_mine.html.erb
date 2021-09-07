@@ -1,4 +1,4 @@
-<h1>マイタスク</h1>
+<h1>マイタスク一覧</h1>
 
 <div id="new-blog-link" class="button">
   <%= link_to '新規作成', new_task_path, class: 'btn btn-outline-secondary' %>
@@ -17,11 +17,7 @@
           <% else %>
             <div class="card-header" style="background-color: rgb(169, 224, 169);">
           <% end %>
-            <% if task.user_id == current_user.id %>
-              <p><%= task.title, class: ""%><p>
-            <% else %>
               <p><%= task.title %><p>
-            <% end %>
             </div>
             <div class="card-body">
               <p><%= task.content%><p>

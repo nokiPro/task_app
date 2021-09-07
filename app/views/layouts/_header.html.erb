@@ -15,21 +15,21 @@
 
   <nav class="sm">
     <ul>
-      <li>
-        <%= link_to 'マイタスク', tasks_show_mine_path ,class: "link_to hover" %>
+      <li class="link_to">
+        <%= link_to 'マイタスク', tasks_show_mine_path %>
       </li>
-      <li>
-        <%= link_to 'タスク一覧', root_path ,class: "link_to" %>
+      <li class="link_to">
+        <%= link_to 'タスク一覧', root_path %>
       </li>
-      <li>
-        <%= link_to 'ユーザ設定', edit_user_registration_path ,class: "link_to" %>
+      <li class="link_to">
+        <%= link_to 'ユーザ設定', edit_user_registration_path %>
       </li>
-      <li>
-      <% if current_user %>
-        <%= button_to 'サインアウト', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= button_to 'サインイン', new_user_session_path%>
-      <% end %>
+      <li class="link_to">
+        <% if current_user %>
+          <%= button_to 'サインアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= button_to 'サインイン', new_user_session_path%>
+        <% end %>
       </li>
     </ul>
   </nav>
