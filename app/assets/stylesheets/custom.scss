@@ -35,6 +35,10 @@
     margin: 0;
   }
 
+  label {
+    font-weight: bold;
+  }
+
   .link_to {
     color: #646464;
     text-decoration: none;
@@ -79,7 +83,7 @@
       display: none;
     }
 
-    .header-message {
+    #header-message {
       display: none;
     }
 
@@ -149,7 +153,7 @@
     margin:10px 15px 10px 15px;
   }
 
-  .header-message {
+  #header-message {
     display: flex;
     justify-content: center;
     align-items: center;

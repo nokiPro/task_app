@@ -5,12 +5,12 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    <%= f.text_field :name, autofocus: true, class: "form-control mb-3" %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -18,29 +18,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <%= f.label :password %> <i>(変更したくない場合は空白のままにします)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control mb-3" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> 文字以上にしてください</em>
     <% end %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-3" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+    <%= f.label :current_password %> <i>(変更を確認するには、現在のパスワードが必要です)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control mb-3" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-success" %>
+    <%= f.submit "更新", class: "btn btn-success mb-3" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントの削除</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+<p><%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>

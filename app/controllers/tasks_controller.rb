@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @status = ["未対応","対応中","完了"]
-    @tasks = Task.where.not(status: 2).order(deadline: "DESC")
+    @tasks = Task.where.not(status: 2).order(deadline: "ASC")
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: "Task was successfully created." }
+        format.html { redirect_to @task, notice: "タスクを作成しました！" }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     @task.user_id = params[:user_id]
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was successfully updated." }
+        format.html { redirect_to @task, notice: "タスクを更新しました！" }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+      format.html { redirect_to tasks_url, notice: "タスクは削除されました！" }
       format.json { head :no_content }
     end
   end
