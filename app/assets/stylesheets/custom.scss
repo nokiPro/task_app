@@ -36,15 +36,16 @@
   }
 
   .link_to {
-    color: #ffffff;
+    color: #646464;
     text-decoration: none;
     display: block;
     line-height: 60px;
     padding: 0 20px;
+    //background-color: #f0f8ff;
   }
 
-  .sm {
-    display: none;
+  .link_to :hover{
+    background-color: #f0f8ff;
   }
 
   .button_to {
@@ -54,8 +55,12 @@
     display: inline-block;
   }
 
-  .hover :hover {
-    background-color: rgb(230, 230, 230)!important;
+  .button_to :hover {
+    color: rgb(36, 110, 230);
+  }
+
+  .sm {
+    display: none;
   }
 
   div.field_with_errors {
