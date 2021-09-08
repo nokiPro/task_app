@@ -7,21 +7,21 @@ ja:
         confirmed_at: パスワード確認時刻
         created_at: 作成日
         current_password: 現在のパスワード
-        current_sign_in_at: 現在のログイン時刻
-        current_sign_in_ip: 現在のログインIPアドレス
+        current_sign_in_at: 現在のサインイン時刻
+        current_sign_in_ip: 現在のサインインIPアドレス
         email: Eメール
         encrypted_password: 暗号化パスワード
-        failed_attempts: 失敗したログイン試行回数
-        last_sign_in_at: 最終ログイン時刻
-        last_sign_in_ip: 最終ログインIPアドレス
+        failed_attempts: 失敗したサインイン試行回数
+        last_sign_in_at: 最終サインイン時刻
+        last_sign_in_ip: 最終サインインIPアドレス
         locked_at: ロック時刻
         password: パスワード
         password_confirmation: パスワード（確認用）
-        remember_created_at: ログイン記憶時刻
-        remember_me: ログインを記憶する
+        remember_created_at: サインイン記憶時刻
+        remember_me: サインインを記憶する
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
-        sign_in_count: ログイン回数
+        sign_in_count: サインイン回数
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
@@ -35,14 +35,14 @@ ja:
       send_instructions: アカウントの有効化について数分以内にメールでご連絡します。
       send_paranoid_instructions: メールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。
     failure:
-      already_authenticated: すでにログインしています。
+      already_authenticated: すでにサインインしています。
       inactive: アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。
       invalid: "%{authentication_keys}またはパスワードが違います。"
       last_attempt: もう一回誤るとアカウントがロックされます。
       locked: アカウントはロックされています。
       not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
-      timeout: セッションがタイムアウトしました。もう一度ログインしてください。
-      unauthenticated: ログインもしくはアカウント登録してください。
+      timeout: セッションがタイムアウトしました。もう一度サインインしてください。
+      unauthenticated: サインインもしくはアカウント登録してください。
       unconfirmed: メールアドレスの本人確認が必要です。
     mailer:
       confirmation_instructions:
@@ -70,7 +70,7 @@ ja:
         action: アカウントのロック解除
         greeting: "%{recipient}様"
         instruction: アカウントのロックを解除するには下のリンクをクリックしてください。
-        message: ログイン失敗が繰り返されたため、アカウントはロックされています。
+        message: サインイン失敗が繰り返されたため、アカウントはロックされています。
         subject: アカウントのロック解除について
     omniauth_callbacks:
       failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
@@ -103,17 +103,17 @@ ja:
       new:
         sign_up: アカウント登録
       signed_up: アカウント登録が完了しました。
-      signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
-      signed_up_but_locked: アカウントがロックされているためログインできません。
+      signed_up_but_inactive: サインインするためには、アカウントを有効化してください。
+      signed_up_but_locked: アカウントがロックされているためサインインできません。
       signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
       update_needs_confirmation: アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。
       updated: アカウント情報を変更しました。
-      updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。
+      updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度サインインしてください。
     sessions:
       already_signed_out: 既にログアウト済みです。
       new:
-        sign_in: ログイン
-      signed_in: ログインしました。
+        sign_in: サインイン
+      signed_in: サインインしました。
       signed_out: ログアウトしました。
     shared:
       links:
@@ -121,8 +121,8 @@ ja:
         didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか？
         didn_t_receive_unlock_instructions: アカウントのロック解除方法のメールを受け取っていませんか？
         forgot_your_password: パスワードを忘れましたか？
-        sign_in: ログイン
-        sign_in_with_provider: "%{provider}でログイン"
+        sign_in: サインイン
+        sign_in_with_provider: "%{provider}でサインイン"
         sign_up: アカウント登録
       minimum_password_length: "（%{count}字以上）"
     unlocks:
@@ -133,7 +133,7 @@ ja:
       unlocked: アカウントをロック解除しました。
   errors:
     messages:
-      already_confirmed: は既に登録済みです。ログインしてください。
+      already_confirmed: は既に登録済みです。サインインしてください。
       confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。
       expired: の有効期限が切れました。新しくリクエストしてください。
       not_found: は見つかりませんでした。
