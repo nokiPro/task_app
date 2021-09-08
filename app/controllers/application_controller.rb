@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :icon])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   # アカウント編集後、プロフィール画面に移動する
