@@ -1,5 +1,3 @@
-<%# https://hakenblog.com/hamburger-menu/ %>
-
 <header>
   <div class="logo">
       <%= link_to 'タスク管理アプリ', root_path, class: "link_to" %>
@@ -28,7 +26,7 @@
         <% if current_user %>
           <%= button_to 'サインアウト', destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= button_to 'サインイン', new_user_session_path%>
+          <%= button_to 'サインイン', new_user_session_path %>
         <% end %>
       </li>
     </ul>
@@ -45,13 +43,12 @@
         <li>
           <%= link_to 'ユーザ設定', edit_user_registration_path ,class: "link_to" %>
         </li>
-        <% if current_user %>
-          <li style="justify-content: center; display: flex; align-items: center;">
-          <%= button_to 'サインアウト', destroy_user_session_path, method: :delete ,class: "button_to" %>
-        <% else %>
-          <li style="justify-content: center; display: flex; align-items: center;">
-          <%= button_to 'サインイン', new_user_session_path ,class: "button_to" %>
-        <% end %>
+        <li style="justify-content: center; display: flex; align-items: center;">
+          <% if current_user %>
+            <%= button_to 'サインアウト', destroy_user_session_path, method: :delete, class: "button_to" %>
+          <% else %>
+            <%= button_to 'サインイン', new_user_session_path ,class: "button_to" %>
+          <% end %>
         </li>
       </ul>
   </nav>
@@ -63,7 +60,7 @@
 
 <script>
   $('#hamburger').on('click', function(){
-  $('.icon').toggleClass('close');
-  $('.sm').slideToggle();
+    $('.icon').toggleClass('close');
+    $('.sm').slideToggle();
   });
 </script>

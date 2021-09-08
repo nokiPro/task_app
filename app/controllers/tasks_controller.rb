@@ -3,17 +3,14 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @status = ["未対応","対応中","完了"]
     @tasks = Task.where.not(status: 2).order(deadline: "ASC")
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
-    @status = ["未対応","対応中","完了"]
   end
 
   def show_mine
-    @status = ["未対応","対応中","完了"]
     @user = User.find(current_user.id)
     @tasks = @user.tasks.where.not(status: 2).order(deadline: "ASC")
   end
@@ -28,7 +25,6 @@ class TasksController < ApplicationController
   end
 
   def asign
-    @status = ["未対応","対応中","完了"]
     @users = User.all
   end
 
